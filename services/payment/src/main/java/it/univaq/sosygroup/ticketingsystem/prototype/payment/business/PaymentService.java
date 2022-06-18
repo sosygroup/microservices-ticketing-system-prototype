@@ -1,7 +1,8 @@
-package it.univaq.sosygroup.ticketingsystem.prototype.blackListService.business;
+package it.univaq.sosygroup.ticketingsystem.prototype.payment.business;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -15,6 +16,7 @@ public class PaymentService {
     }
 
     public void pay(String instanceId) {
-        System.out.println("Called Pay Operation on Payment instance #" + instanceNumber);
+
+        System.out.println("Called instance #" + instanceNumber);
     }
 }

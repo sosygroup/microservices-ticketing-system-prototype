@@ -1,4 +1,4 @@
-package it.univaq.sosygroup.ticketingsystem.prototype.blackListService;
+package it.univaq.sosygroup.ticketingsystem.prototype.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
