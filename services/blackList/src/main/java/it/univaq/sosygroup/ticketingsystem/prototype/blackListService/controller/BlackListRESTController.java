@@ -1,6 +1,5 @@
 package it.univaq.sosygroup.ticketingsystem.prototype.blackListService.controller;
 
-;
 import it.univaq.sosygroup.ticketingsystem.prototype.blackListService.business.BlackListService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
