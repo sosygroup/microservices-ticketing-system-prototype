@@ -1,0 +1,4 @@
+server:
+  port: 8140
+  servlet:
+    context-path: /shipping

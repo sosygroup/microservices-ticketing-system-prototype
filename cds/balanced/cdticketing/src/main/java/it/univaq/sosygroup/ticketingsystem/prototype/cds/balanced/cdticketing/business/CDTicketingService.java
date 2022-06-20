@@ -1,6 +1,5 @@
 package it.univaq.sosygroup.ticketingsystem.prototype.cds.balanced.cdticketing.business;
 
-import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerExchangeFilterFunction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -16,7 +15,7 @@ public class CDTicketingService {
     public void createTickets(String instanceId) {
 
         loadBalancedWebClientBuilder.build().get().uri(String.format("http://ticketing/createTickets/%s", instanceId))
-                    .retrieve().toEntity(String.class).subscribe(System.out::println);
+                .retrieve().toEntity(String.class).subscribe(System.out::println);
     }
 
     public void printTickets(String instanceId) {
