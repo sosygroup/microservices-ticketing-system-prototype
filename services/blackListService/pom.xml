@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>it.univaq.sosygroup.ticketingsystem.prototype</groupId>
-	<artifactId>blackList</artifactId>
+	<artifactId>blackListService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Black List</name>
+	<name>Black List Service</name>
 	<description>Black List microservice for prototype ticketing system</description>
 	<properties>
 		<java.version>1.8</java.version>
