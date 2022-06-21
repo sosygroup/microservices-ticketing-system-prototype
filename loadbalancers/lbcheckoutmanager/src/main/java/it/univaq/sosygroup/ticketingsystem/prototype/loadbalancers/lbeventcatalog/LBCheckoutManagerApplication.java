@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CDTicketingApplication {
+public class LBCheckoutManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CDTicketingApplication.class, args);
+		SpringApplication.run(LBCheckoutManagerApplication.class, args);
 	}
 
 }
