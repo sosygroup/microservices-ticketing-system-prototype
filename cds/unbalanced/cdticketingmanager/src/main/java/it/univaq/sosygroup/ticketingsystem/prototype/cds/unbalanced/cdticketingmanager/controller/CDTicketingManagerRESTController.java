@@ -17,29 +17,29 @@ public class CDTicketingManagerRESTController {
 
     @GetMapping("/createTickets/{instanceId}")
     public ResponseEntity<?> createTickets(@PathVariable String instanceId) {
-        cdTicketingManagerService.createTickets(instanceId);
+        String response = cdTicketingManagerService.createTickets(instanceId);
 
-        return ResponseEntity.ok(instanceId);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/printTickets/{instanceId}")
     public ResponseEntity<?> printTickets(@PathVariable String instanceId) {
-        cdTicketingManagerService.printTickets(instanceId);
+        String response = cdTicketingManagerService.printTickets(instanceId);
 
-        return ResponseEntity.ok(instanceId);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/prepareTicketShipping/{instanceId}")
     public ResponseEntity<?> prepareTicketShipping(@PathVariable String instanceId) {
-        cdTicketingManagerService.prepareTicketShipping(instanceId);
+        String response = cdTicketingManagerService.prepareTicketShipping(instanceId);
 
-        return ResponseEntity.ok(instanceId);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/completeTicketIssue/{instanceId}")
     public ResponseEntity<?> completeTicketIssue(@PathVariable String instanceId) {
-        cdTicketingManagerService.completeTicketIssue(instanceId);
+        String response = cdTicketingManagerService.completeTicketIssue(instanceId);
 
-        return ResponseEntity.ok(instanceId);
+        return ResponseEntity.ok(response);
     }
 }
