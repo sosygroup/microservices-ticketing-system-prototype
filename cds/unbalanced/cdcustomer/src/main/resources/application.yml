@@ -1,4 +1,4 @@
 server:
-  port: 8350
+  port: 8550
   servlet:
-    context-path: /cdCheckoutManager
+    context-path: /cdCustomer

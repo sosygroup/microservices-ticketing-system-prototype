@@ -17,8 +17,7 @@ public class CheckoutManagerRESTController {
 
     @GetMapping("/processCheckout/{instanceId}")
     public ResponseEntity<String> processCheckout(@PathVariable String instanceId) {
-        String response = String.format("[Choreography instance %s] Checkout Manager - Operation: Process Checkout", instanceId);
-        checkoutManagerService.issueTickets(instanceId);
+        String response = checkoutManagerService.processCheckout(instanceId);
         return ResponseEntity.ok(response);
     }
 

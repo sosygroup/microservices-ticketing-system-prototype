@@ -36,6 +36,13 @@ public class CDTicketPortalManagerRESTController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/ticketsReserved/{instanceId}")
+    public ResponseEntity<?> ticketsReserved(@PathVariable String instanceId) {
+        String response = cdTicketPortalManagerService.ticketsReserved(instanceId);
+
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/releaseReservation/{instanceId}")
     public ResponseEntity<?> releaseReservation(@PathVariable String instanceId) {
         String response = cdTicketPortalManagerService.releaseReservation(instanceId);
@@ -67,6 +74,13 @@ public class CDTicketPortalManagerRESTController {
     @GetMapping("/updateAvailability/{instanceId}")
     public ResponseEntity<?> updateAvailability(@PathVariable String instanceId) {
         String response = cdTicketPortalManagerService.updateAvailability(instanceId);
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/returnTicketsAndShippingInfo/{instanceId}")
+    public ResponseEntity<?> returnTicketsAndShippingInfo(@PathVariable String instanceId) {
+        String response = cdTicketPortalManagerService.returnTicketsAndShippingInfo(instanceId);
 
         return ResponseEntity.ok(response);
     }

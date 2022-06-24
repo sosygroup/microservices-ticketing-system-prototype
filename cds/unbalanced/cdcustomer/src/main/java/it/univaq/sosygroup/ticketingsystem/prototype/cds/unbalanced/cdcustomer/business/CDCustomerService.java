@@ -36,7 +36,7 @@ public class CDCustomerService {
 
     public String requestCheckout(String instanceId) {
         ResponseEntity<String> response = webClientBuilder.build().get()
-                .uri(String.format("http://localhost:8300/checkoutManager/requestCheckout/%s", instanceId))
+                .uri(String.format("http://localhost:8200/ticketPortalManager/requestCheckout/%s", instanceId))
                 .retrieve().toEntity(String.class).block();
         return response != null ? response.getBody() : null;
     }

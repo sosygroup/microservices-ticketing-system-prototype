@@ -17,8 +17,7 @@ public class TicketingManagerRESTController {
 
     @GetMapping("/issueTickets/{instanceId}")
     public ResponseEntity<String> issuetickets(@PathVariable String instanceId) {
-        String response = String.format("[Choreography instance %s] Ticketing Manager - Operation: Issue Tickets", instanceId);
-        ticketingManagerService.issueTickets(instanceId);
+        String response = ticketingManagerService.issueTickets(instanceId);
         return ResponseEntity.ok(response);
     }
 

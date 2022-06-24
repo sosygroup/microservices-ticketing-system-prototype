@@ -34,6 +34,13 @@ public class CDTicketPortalManagerService {
         return response != null ? response.getBody() : null;
     }
 
+    public String ticketsReserved(String instanceId) {
+        ResponseEntity<String> response = webClientBuilder.build().get()
+                .uri(String.format("http://localhost:8888/customer/ticketsReserved/%s", instanceId))
+                .retrieve().toEntity(String.class).block();
+        return response != null ? response.getBody() : null;
+    }
+
     public String releaseReservation(String instanceId) {
         ResponseEntity<String> response = webClientBuilder.build().get()
                 .uri(String.format("http://localhost:8130/reservationService/createTempReservation/%s", instanceId))
@@ -68,4 +75,12 @@ public class CDTicketPortalManagerService {
                 .retrieve().toEntity(String.class).block();
         return response != null ? response.getBody() : null;
     }
+
+    public String returnTicketsAndShippingInfo(String instanceId) {
+        ResponseEntity<String> response = webClientBuilder.build().get()
+                .uri(String.format("http://localhost:8888/customer/returnTicketsAndShippingInfo/%s", instanceId))
+                .retrieve().toEntity(String.class).block();
+        return response != null ? response.getBody() : null;
+    }
+
 }
