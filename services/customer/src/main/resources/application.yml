@@ -2,3 +2,7 @@ server:
   port: 8888
   servlet:
     context-path: /customer
+
+logging:
+    file:
+      name: logs/customer.log

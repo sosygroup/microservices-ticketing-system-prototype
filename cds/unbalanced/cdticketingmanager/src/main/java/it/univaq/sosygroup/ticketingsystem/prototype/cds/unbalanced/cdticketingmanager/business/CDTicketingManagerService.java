@@ -34,9 +34,9 @@ public class CDTicketingManagerService {
         return response != null ? response.getBody() : null;
     }
 
-    public String completeTicketIssue(String instanceId) {
+    public String ticketIssueCompleted(String instanceId) {
         ResponseEntity<String> response = webClientBuilder.build().get()
-                .uri(String.format("http://localhost:8200/ticketPortalManager/ticketsIssueCompleted/%s", instanceId))
+                .uri(String.format("http://localhost:8200/ticketPortalManager/ticketIssueCompleted/%s", instanceId))
                 .retrieve().toEntity(String.class).block();
         return response != null ? response.getBody() : null;
     }

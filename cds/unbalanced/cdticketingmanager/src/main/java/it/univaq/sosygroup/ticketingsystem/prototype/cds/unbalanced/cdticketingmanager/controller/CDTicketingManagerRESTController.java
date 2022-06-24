@@ -36,9 +36,9 @@ public class CDTicketingManagerRESTController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/completeTicketIssue/{instanceId}")
-    public ResponseEntity<?> completeTicketIssue(@PathVariable String instanceId) {
-        String response = cdTicketingManagerService.completeTicketIssue(instanceId);
+    @GetMapping("/ticketIssueCompleted/{instanceId}")
+    public ResponseEntity<?> ticketIssueCompleted(@PathVariable String instanceId) {
+        String response = cdTicketingManagerService.ticketIssueCompleted(instanceId);
 
         return ResponseEntity.ok(response);
     }

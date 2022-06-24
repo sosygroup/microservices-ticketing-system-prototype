@@ -13,7 +13,7 @@ public class CheckoutManagerService {
 
     static {
         instanceNumber = ThreadLocalRandom.current().nextInt(0, 1000);
-        System.out.println("Instantiated Ticketing Manager instance #" + instanceNumber);
+        System.out.println("Instantiated Checkout Manager instance #" + instanceNumber);
     }
 
     private final WebClient.Builder webClientBuilder;
@@ -37,7 +37,7 @@ public class CheckoutManagerService {
         System.out.println(payResponse);
 
         ResponseEntity<String> checkoutCompleteResponse = webClientBuilder.build().get()
-                .uri(String.format("http://localhost:8350/cdCheckoutManager/CheckoutComplete/%s", instanceId))
+                .uri(String.format("http://localhost:8350/cdCheckoutManager/checkoutComplete/%s", instanceId))
                 .retrieve().toEntity(String.class).block();
         System.out.println(checkoutCompleteResponse);
 

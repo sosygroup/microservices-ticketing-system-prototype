@@ -14,7 +14,7 @@ public class TicketingManagerService {
 
     static {
         instanceNumber = ThreadLocalRandom.current().nextInt(0, 1000);
-        System.out.println("Instantiated Shipping instance #" + instanceNumber);
+        System.out.println("Instantiated Ticketing Manager instance #" + instanceNumber);
     }
 
     private final WebClient.Builder webClientBuilder;
