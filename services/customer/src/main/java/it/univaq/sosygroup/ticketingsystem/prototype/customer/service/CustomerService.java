@@ -36,24 +36,24 @@ public class CustomerService {
     }
 
     public void selectTickets(String instanceId) {
-        logger.info(String.format("Choreography Instance %s: Sending selectTickets at %s", instanceId, System.currentTimeMillis()));
+        logger.info(String.format("Choreography Instance %s: Sending ticketSelection at %s", instanceId, System.currentTimeMillis()));
         webClientBuilder.build().get()
                 .uri(String.format("http://localhost:8550/cdCustomer/selectTickets/%s", instanceId))
                 .retrieve().toEntity(String.class).block();
     }
 
     public void requestCheckout(String instanceId) {
-        logger.info(String.format("Choreography Instance %s: Sending requestCheckout at %s", instanceId, System.currentTimeMillis()));
+        logger.info(String.format("Choreography Instance %s: Sending checkoutProcess at %s", instanceId, System.currentTimeMillis()));
         webClientBuilder.build().get()
                 .uri(String.format("http://localhost:8550/cdCustomer/requestCheckout/%s", instanceId))
                 .retrieve().toEntity(String.class).block();
     }
 
     public void ticketsReserved(String instanceId) {
-        logger.info(String.format("Choreography Instance %s: Received ticketsReserved at %s", instanceId, System.currentTimeMillis()));
+        logger.info(String.format("Choreography Instance %s: Received ticketSelection at %s", instanceId, System.currentTimeMillis()));
     }
 
     public void returnTicketsAndShippingInfo(String instanceId) {
-        logger.info(String.format("Choreography Instance %s: Received returnTicketsAndShippingInfo at %s", instanceId, System.currentTimeMillis()));
+        logger.info(String.format("Choreography Instance %s: Received checkoutProcess at %s", instanceId, System.currentTimeMillis()));
     }
 }

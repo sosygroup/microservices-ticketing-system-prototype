@@ -24,7 +24,7 @@ public class ClientApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 
-		int instances = 10;
+		int instances = 50;
 		String[] instanceIds = new String[instances];
 		for (int i = 0; i<instances; i++) {
 			instanceIds[i] = generateRandomId();
@@ -32,6 +32,7 @@ public class ClientApplication implements CommandLineRunner {
 
 		Arrays.stream(instanceIds).parallel().forEach(
 				instanceId -> {
+					System.out.printf("Running instance %s%n", instanceId);
 					webClientBuilder.build().get()
 					.uri(String.format("http://localhost:8888/customer/invokeGetEventsList/%s", instanceId))
 					.retrieve().toEntity(String.class).block();
@@ -49,6 +50,8 @@ public class ClientApplication implements CommandLineRunner {
 							.retrieve().toEntity(String.class).block();
 				}
 		);
+
+		System.out.println("Instances completed");
 	}
 
 	private String generateRandomId() {
