@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.Objects;
+
 @Service
 public class CustomerService {
 
@@ -19,19 +21,21 @@ public class CustomerService {
     public void getEventsList(String instanceId) {
         logger.info(String.format("Choreography Instance %s: Sending getEventList at %s", instanceId, System.currentTimeMillis()));
 
-        webClientBuilder.build().get()
+        String eventList = Objects.requireNonNull(webClientBuilder.build().get()
                 .uri(String.format("http://localhost:8550/cdCustomer/getEvents/%s", instanceId))
-                .retrieve().toEntity(String.class).block();
+                .retrieve().toEntity(String.class).block()).getBody();
 
+        System.out.printf("Event list for %s: %sn", instanceId, eventList);
         logger.info(String.format("Choreography Instance %s: Received getEventList at %s", instanceId, System.currentTimeMillis()));
     }
 
     public void getEventInfo(String instanceId) {
         logger.info(String.format("Choreography Instance %s: Sending getEventInfo at %s", instanceId, System.currentTimeMillis()));
-        webClientBuilder.build().get()
+        String eventInfo = Objects.requireNonNull(webClientBuilder.build().get()
                 .uri(String.format("http://localhost:8550/cdCustomer/getEventInfo/%s", instanceId))
-                .retrieve().toEntity(String.class).block();
+                .retrieve().toEntity(String.class).block()).getBody();
 
+        System.out.printf("Event info for %s: %sn", instanceId, eventInfo);
         logger.info(String.format("Choreography Instance %s: Received getEventInfo at %s", instanceId, System.currentTimeMillis()));
     }
 

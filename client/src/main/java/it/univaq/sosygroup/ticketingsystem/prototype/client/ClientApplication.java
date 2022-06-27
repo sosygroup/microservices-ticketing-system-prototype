@@ -24,33 +24,43 @@ public class ClientApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 
-		int instances = 50;
-		String[] instanceIds = new String[instances];
-		for (int i = 0; i<instances; i++) {
-			instanceIds[i] = generateRandomId();
+		final int parallelInstances = 5000;
+		final int totalInstances = 5000;
+
+		for (int i = 0; i < totalInstances; i = i + parallelInstances) {
+
+			String[] instanceIds = new String[parallelInstances];
+			for (int j = 0; j<parallelInstances; j++) {
+				instanceIds[j] = generateRandomId();
+			}
+
+			Arrays.stream(instanceIds).parallel().forEach(
+					instanceId -> {
+						System.out.printf("Running instance %s%n", instanceId);
+						webClientBuilder.build().get()
+						.uri(String.format("http://localhost:8888/customer/invokeGetEventsList/%s", instanceId))
+						.retrieve().toEntity(String.class).block();
+
+						webClientBuilder.build().get()
+								.uri(String.format("http://localhost:8888/customer/invokeGetEventInfo/%s", instanceId))
+								.retrieve().toEntity(String.class).block();
+
+						webClientBuilder.build().get()
+								.uri(String.format("http://localhost:8888/customer/invokeSelectTickets/%s", instanceId))
+								.retrieve().toEntity(String.class).block();
+
+						webClientBuilder.build().get()
+								.uri(String.format("http://localhost:8888/customer/invokeRequestCheckout/%s", instanceId))
+								.retrieve().toEntity(String.class).block();
+					}
+			);
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-
-		Arrays.stream(instanceIds).parallel().forEach(
-				instanceId -> {
-					System.out.printf("Running instance %s%n", instanceId);
-					webClientBuilder.build().get()
-					.uri(String.format("http://localhost:8888/customer/invokeGetEventsList/%s", instanceId))
-					.retrieve().toEntity(String.class).block();
-
-					webClientBuilder.build().get()
-							.uri(String.format("http://localhost:8888/customer/invokeGetEventInfo/%s", instanceId))
-							.retrieve().toEntity(String.class).block();
-
-					webClientBuilder.build().get()
-							.uri(String.format("http://localhost:8888/customer/invokeSelectTickets/%s", instanceId))
-							.retrieve().toEntity(String.class).block();
-
-					webClientBuilder.build().get()
-							.uri(String.format("http://localhost:8888/customer/invokeRequestCheckout/%s", instanceId))
-							.retrieve().toEntity(String.class).block();
-				}
-		);
-
 		System.out.println("Instances completed");
 	}
 
