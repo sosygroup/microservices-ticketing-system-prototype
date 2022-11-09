@@ -1,0 +1,5 @@
+server:
+  port: 8450
+  servlet:
+    context-path: /cdTicketingManager
+

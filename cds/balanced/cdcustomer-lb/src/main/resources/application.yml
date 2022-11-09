@@ -1,0 +1,4 @@
+server:
+  port: 8550
+  servlet:
+    context-path: /cdCustomer

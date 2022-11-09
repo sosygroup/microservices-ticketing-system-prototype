@@ -1,7 +1,6 @@
 package it.univaq.sosygroup.ticketingsystem.prototype.customer.controller;
 
 import it.univaq.sosygroup.ticketingsystem.prototype.customer.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

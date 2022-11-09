@@ -6,3 +6,4 @@ server:
 logging:
     file:
       name: logs/customer.log
+      max-size: 20MB

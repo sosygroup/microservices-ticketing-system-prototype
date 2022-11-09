@@ -24,8 +24,10 @@ public class ClientApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 
-		final int parallelInstances = 5000;
-		final int totalInstances = 5000;
+		// The client runs a number of parallel instances (simulates a number of users)...
+		// ...and repeats the runs until the total instances number is reached
+		final int parallelInstances = 100;
+		final int totalInstances = 10;
 
 		for (int i = 0; i < totalInstances; i = i + parallelInstances) {
 
